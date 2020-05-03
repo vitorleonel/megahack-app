@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Block, Text, NavBar, Icon, Input, Button } from "galio-framework";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 export default function Repository({ navigation }) {
   return (
