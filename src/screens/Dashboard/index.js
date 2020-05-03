@@ -105,7 +105,7 @@ export default function Dashboard() {
 
         <Block shadow style={[styles.card, { padding: 0 }]}>
           <Text color="#525F7F" bold size={16} style={{ padding: 16 }}>
-            Relatorio de vendas últimos 6 meses
+            Relatorio de vendas nos últimos 6 meses
           </Text>
 
           <VictoryChart
@@ -145,7 +145,7 @@ export default function Dashboard() {
 
         <Block shadow style={[styles.card, { padding: 0 }]}>
           <Text color="#525F7F" bold size={16} style={{ padding: 16 }}>
-            Estoque x vendas realizadas
+            Estoque x vendas realizadas nos últimos 6 meses
           </Text>
 
           <Svg width={width / 1.25} height={width / 1.25}>
@@ -181,7 +181,7 @@ export default function Dashboard() {
 
         <Block shadow style={[styles.card, { padding: 0 }]}>
           <Text color="#525F7F" bold size={16} style={{ padding: 16 }}>
-            Produtos ativos
+            Produtos ativos nos últimos 6 meses
           </Text>
 
           <VictoryGroup
