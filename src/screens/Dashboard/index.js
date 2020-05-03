@@ -149,6 +149,17 @@ export default function Dashboard() {
           </Text>
 
           <Svg width={width / 1.25} height={width / 1.25}>
+            <VictoryLegend
+              width={width - 20}
+              x={40}
+              y={8}
+              orientation="horizontal"
+              data={[
+                { name: "Vendas realizadas", symbol: { fill: "#2ED47A" } },
+                { name: "Estoque total", symbol: { fill: "#FFB946" } },
+              ]}
+            />
+
             <VictoryPie
               width={width / 1.125}
               height={width / 1.15}
@@ -164,16 +175,6 @@ export default function Dashboard() {
               x={width / 1.125 / 2}
               y={width / 1.15 / 2}
               text={`${(10 / 13).toFixed(2) * 100}%`}
-            />
-
-            <VictoryLegend
-              x={65}
-              y={8}
-              orientation="horizontal"
-              data={[
-                { name: "Vendas feitas", symbol: { fill: "#2ED47A" } },
-                { name: "Estoque total", symbol: { fill: "#FFB946" } },
-              ]}
             />
           </Svg>
         </Block>
