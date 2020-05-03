@@ -176,6 +176,7 @@ export default function Dashboard() {
               />
 
               <VictoryLine
+                interpolation="natural"
                 style={{
                   data: {
                     stroke: "#109CF1",
