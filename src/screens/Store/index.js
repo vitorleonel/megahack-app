@@ -7,12 +7,21 @@ import {
   FlatList,
   Image,
   Dimensions,
+  TouchableOpacity,
+  StatusBar,
 } from "react-native";
 import { Block, Text, NavBar, Icon, Input, Button } from "galio-framework";
+import { useFocusEffect } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 
 export default function Store({ navigation }) {
+  useFocusEffect(
+    React.useCallback(() => {
+      StatusBar.setBarStyle("dark-content");
+    }, [])
+  );
+
   return (
     <Block flex style={styles.container}>
       <NavBar
@@ -68,23 +77,28 @@ export default function Store({ navigation }) {
         contentContainerStyle={styles.productsContent}
         numColumns={2}
         renderItem={() => (
-          <Block shadow style={styles.product}>
-            <Image
-              style={styles.productImage}
-              source={{
-                uri:
-                  "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-              }}
-            />
+          <TouchableOpacity
+            activeOpacity={0.75}
+            onPress={() => navigation.navigate("Product")}
+          >
+            <Block shadow style={styles.product}>
+              <Image
+                style={styles.productImage}
+                source={{
+                  uri:
+                    "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+                }}
+              />
 
-            <Block>
-              <Text style={styles.productTitle}>
-                Capa de celular Galaxy Note
-              </Text>
+              <Block>
+                <Text style={styles.productTitle}>
+                  Capa de celular Galaxy Note
+                </Text>
 
-              <Text style={styles.productPrice}>R$ 50,00</Text>
+                <Text style={styles.productPrice}>R$ 50,00</Text>
+              </Block>
             </Block>
-          </Block>
+          </TouchableOpacity>
         )}
       />
     </Block>

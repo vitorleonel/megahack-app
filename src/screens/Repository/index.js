@@ -7,12 +7,20 @@ import {
   FlatList,
   Image,
   Dimensions,
+  StatusBar,
 } from "react-native";
 import { Block, Text, NavBar, Icon, Input, Button } from "galio-framework";
+import { useFocusEffect } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 
 export default function Repository({ navigation }) {
+  useFocusEffect(
+    React.useCallback(() => {
+      StatusBar.setBarStyle("dark-content");
+    }, [])
+  );
+
   return (
     <Block flex style={styles.container}>
       <NavBar

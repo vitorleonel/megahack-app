@@ -5,6 +5,7 @@ import {
   ImageBackground,
   ScrollView,
   Image,
+  StatusBar,
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -20,10 +21,17 @@ import {
   VictoryAxis,
 } from "victory-native";
 import { Svg, Defs, LinearGradient, Stop } from "react-native-svg";
+import { useFocusEffect } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Dashboard({ navigation }) {
+  useFocusEffect(
+    React.useCallback(() => {
+      StatusBar.setBarStyle("light-content");
+    }, [])
+  );
+
   return (
     <ImageBackground
       source={require("../../images/profile-screen-bg.png")}
