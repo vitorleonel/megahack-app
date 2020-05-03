@@ -1,7 +1,10 @@
+import "react-native-gesture-handler";
+
 import React from "react";
 import { StatusBar } from "react-native";
 
-import DashboardScreen from "./src/screens/Dashboard";
+import { NavigationContainer } from "@react-navigation/native";
+import Navigation from "./src/navigation";
 
 export default function App() {
   return (
@@ -12,7 +15,9 @@ export default function App() {
         translucent
       />
 
-      <DashboardScreen />
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
     </>
   );
 }

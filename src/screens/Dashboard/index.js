@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 
-import { Block, Text } from "galio-framework";
+import { NavBar, Block, Text, Icon } from "galio-framework";
 import {
   VictoryGroup,
   VictoryChart,
@@ -19,11 +19,11 @@ import {
   VictoryLabel,
   VictoryAxis,
 } from "victory-native";
-import { Svg, Defs, LinearGradient, Stop, Ellipse } from "react-native-svg";
+import { Svg, Defs, LinearGradient, Stop } from "react-native-svg";
 
 const { width, height } = Dimensions.get("window");
 
-export default function Dashboard() {
+export default function Dashboard({ navigation }) {
   return (
     <ImageBackground
       source={require("../../images/profile-screen-bg.png")}
@@ -31,6 +31,21 @@ export default function Dashboard() {
       imageStyle={styles.imageContainer}
     >
       <ScrollView showsVerticalScrollIndicator={false}>
+        <NavBar
+          title="Dashboard"
+          transparent
+          titleStyle={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" }}
+          left={
+            <Icon
+              name="menu"
+              family="Feather"
+              size={24}
+              color="#ffffff"
+              onPress={() => navigation.toggleDrawer()}
+            />
+          }
+        />
+
         <Block shadow style={[styles.card, styles.profile]}>
           <Image
             source={{
@@ -251,7 +266,7 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#ffffff",
     marginBottom: 24,
-    marginHorizontal: 20,
+    marginHorizontal: 16,
     borderRadius: 6,
     elevation: 2,
     borderWidth: StyleSheet.hairlineWidth,
@@ -259,7 +274,7 @@ const styles = StyleSheet.create({
   },
 
   profile: {
-    marginTop: 128,
+    marginTop: 86,
   },
 
   profileImage: {
