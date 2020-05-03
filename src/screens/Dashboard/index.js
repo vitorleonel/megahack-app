@@ -11,9 +11,12 @@ import Constants from "expo-constants";
 import { Block, Text } from "galio-framework";
 import {
   VictoryGroup,
+  VictoryChart,
   VictoryBar,
   VictoryLine,
-  VictoryChart,
+  VictoryPie,
+  VictoryLegend,
+  VictoryLabel,
   VictoryAxis,
 } from "victory-native";
 import { Svg, Defs, LinearGradient, Stop, Ellipse } from "react-native-svg";
@@ -140,10 +143,39 @@ export default function Dashboard() {
           </VictoryChart>
         </Block>
 
-        <Block shadow style={styles.card}>
-          <Text color="#525F7F" bold size={16}>
-            Estoque x vendas feitas
+        <Block shadow style={[styles.card, { padding: 0 }]}>
+          <Text color="#525F7F" bold size={16} style={{ padding: 16 }}>
+            Estoque x vendas realizadas
           </Text>
+
+          <Svg width={width / 1.25} height={width / 1.25}>
+            <VictoryPie
+              width={width / 1.125}
+              height={width / 1.15}
+              innerRadius={80}
+              colorScale={["#2ED47A", "#FFB946"]}
+              labels={() => null}
+              data={[10, 3]}
+            />
+
+            <VictoryLabel
+              textAnchor="middle"
+              style={{ fontSize: 56, fill: "#2ED47A" }}
+              x={width / 1.125 / 2}
+              y={width / 1.15 / 2}
+              text={`${(10 / 13).toFixed(2) * 100}%`}
+            />
+
+            <VictoryLegend
+              x={65}
+              y={8}
+              orientation="horizontal"
+              data={[
+                { name: "Vendas feitas", symbol: { fill: "#2ED47A" } },
+                { name: "Estoque total", symbol: { fill: "#FFB946" } },
+              ]}
+            />
+          </Svg>
         </Block>
 
         <Block shadow style={[styles.card, { padding: 0 }]}>
