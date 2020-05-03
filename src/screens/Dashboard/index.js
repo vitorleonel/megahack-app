@@ -30,22 +30,22 @@ export default function Dashboard({ navigation }) {
       style={styles.container}
       imageStyle={styles.imageContainer}
     >
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <NavBar
-          title="Dashboard"
-          transparent
-          titleStyle={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" }}
-          left={
-            <Icon
-              name="menu"
-              family="Feather"
-              size={24}
-              color="#ffffff"
-              onPress={() => navigation.toggleDrawer()}
-            />
-          }
-        />
+      <NavBar
+        title="Dashboard"
+        transparent
+        titleStyle={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" }}
+        left={
+          <Icon
+            name="menu"
+            family="Feather"
+            size={24}
+            color="#ffffff"
+            onPress={() => navigation.toggleDrawer()}
+          />
+        }
+      />
 
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Block shadow style={[styles.card, styles.profile]}>
           <Image
             source={{
