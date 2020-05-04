@@ -44,7 +44,7 @@ export default function Store({ navigation }) {
           />
         }
         right={
-          <Icon name="share" family="Feather" size={22} onPress={onShare} />
+          <Icon name="share-2" family="Feather" size={22} onPress={onShare} />
         }
       />
 
